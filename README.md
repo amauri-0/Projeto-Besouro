@@ -1,8 +1,8 @@
 # Projeto-Besouro
 
 ## Autores
-** Juan Pablo de Almeida Oliveira
-** João Amauri Rodrigues do Nascimento
+**Juan Pablo de Almeida Oliveira** (Licenciando em Ciências Biológicas, UFC)
+**João Amauri Rodrigues do Nascimento** (Bacharelando em Sistemas e Mídias Digitais, UFC)
 
 ## Sobre
 Projeto-Besouro é um Trabalho de Conclusão do Curso (TCC), ESCREVER SOBRE
