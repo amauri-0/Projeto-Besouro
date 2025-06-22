@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Bettle
+  - PatrolPoint
   layers:
   - Default
   - TransparentFX

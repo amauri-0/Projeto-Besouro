@@ -1,8 +1,15 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public enum BeetleState { Walking, Idle, Turning, Fallen, Spining}
-public enum Morphotype { TypeA, TypeB, TypeC }
+[System.Serializable]
+public enum Morphotype
+{
+    Black,
+    Red,
+    Yellow
+}
+
+public enum BeetleState { Walking, Idle, Turning, Fallen, Spining }
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(SpriteRenderer))]
@@ -17,11 +24,18 @@ public class Beetle : MonoBehaviour
     public float idleChancePerSecond = 0.2f;
     public float minIdleTime = 1f;
     public float maxIdleTime = 2f;
+    // tempo mínimo sem colisão antes de sair de Idle
+    public float idleRecoveryDelay = 0.5f;
+    // variáveis internas
+    private float noCollisionTimer;
 
     [Header("Patrol Settings (Optional)")]
     public List<Transform> patrolPoints;
     public float zigzagAmplitude = 0.5f;
     public float zigzagFrequency = 2f;
+
+    [Header("Morphotype Selection")]
+    public Morphotype morphotype;
 
     // State & movement
     protected BeetleState state;
@@ -39,22 +53,17 @@ public class Beetle : MonoBehaviour
     // Components
     private SpriteRenderer spriteRenderer;
     private Animator animator;
+    private BoxCollider2D boxCollider;
 
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        boxCollider = GetComponent<BoxCollider2D>();
 
-        // 1) Direção aleatória (você já faz)
         InitDirection();
-
-        // 2) Timer de turnos começa em um ponto aleatório
         turnTimer = Random.Range(0f, turnInterval);
-
-        // 3) Timer de zigzag
         zigzagTimer = Random.Range(0f, 1.5f);
-
-        // 4) Começa andando
         ChangeState(BeetleState.Walking);
     }
 
@@ -63,62 +72,89 @@ public class Beetle : MonoBehaviour
         stateTimer -= Time.deltaTime;
         turnTimer -= Time.deltaTime;
 
+
+        bool colliding = IsCollidingWithBeetle();
+
         switch (state)
         {
             case BeetleState.Walking:
                 PerformWalk();
+
                 if (turnTimer <= 0f)
                 {
-                    if (Random.value < turnChance)
+                    if (!colliding && Random.value < turnChance && !IsCollidingWithPatrolPoint())
                         ChangeState(BeetleState.Turning, 0.75f);
                     turnTimer = turnInterval;
                 }
-                TryEnterIdle();
+
+                if (!colliding)
+                TryEnterIdle(colliding);
                 break;
 
             case BeetleState.Idle:
-                if (stateTimer <= 0f)
+                // decremente o tempo de Idle normalmente
+                stateTimer -= Time.deltaTime;
+
+                if (colliding)
+                {
+                    // resetamos o timer de recuperação sempre que colidir
+                    noCollisionTimer = idleRecoveryDelay;
+                }
+                else
+                {
+                    // contamos o tempo sem colisões
+                    noCollisionTimer -= Time.deltaTime;
+                }
+
+                // só saímos de Idle se o tempo mínimo de Idle expirou E o tempo de "sem colisão" também
+                if (stateTimer <= 0f && noCollisionTimer <= 0f)
+                {
                     ChangeState(BeetleState.Walking);
+                }
                 break;
 
             case BeetleState.Turning:
                 if (stateTimer <= 0f)
                 {
+                    spriteRenderer.flipX = !spriteRenderer.flipX;
                     if (patrolPoints != null && patrolPoints.Count > 0)
                     {
                         patrolSign *= -1;
                         currentIndex = (currentIndex + patrolSign + patrolPoints.Count) % patrolPoints.Count;
+                        if (IsCollidingWithPatrolPoint())
+                        {
+                            ChangeState(BeetleState.Walking);
+                        }
+                        else
+                        {
+                            if (IsCollidingWithBeetle())
+                            {
+                                ChangeState(BeetleState.Idle);
+                            }
+                            else
+                            {
+                                ChangeState(BeetleState.Walking);
+                            }
+                        }
                     }
                     else
                     {
                         direction = -direction;
                     }
-                    ChangeState(BeetleState.Walking);
                 }
                 break;
 
             case BeetleState.Fallen:
-                // permanece caído
                 break;
         }
-
-        // Flip sprite based on horizontal movement
-        if (lastMove.x != 0f)
-            spriteRenderer.flipX = lastMove.x < 0f;
     }
 
-    /// <summary>
-    /// Initialize with a random movement direction.
-    /// </summary>
     protected void InitDirection()
     {
         float angle = Random.Range(0f, 2f * Mathf.PI);
         direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
     }
 
-    /// <summary>
-    /// Handles walking logic, with optional patrol + zigzag.
-    /// </summary>
     private void PerformWalk()
     {
         Vector2 move;
@@ -145,32 +181,46 @@ public class Beetle : MonoBehaviour
         transform.Translate(move * speed * Time.deltaTime);
     }
 
-    /// <summary>
-    /// Randomly enter idle if not colliding with another beetle.
-    /// </summary>
-    protected void TryEnterIdle()
+    protected void TryEnterIdle(bool colliding)
     {
+        if (colliding) return;
         if (Random.value < idleChancePerSecond * Time.deltaTime)
         {
-            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 0.1f);
-            bool collision = false;
-            foreach (var c in hits)
-                if (c.gameObject != gameObject && c.GetComponent<Beetle>() != null)
-                    collision = true;
-
-            if (!collision)
-                ChangeState(BeetleState.Idle, Random.Range(minIdleTime, maxIdleTime));
+            ChangeState(BeetleState.Idle, Random.Range(minIdleTime, maxIdleTime));
         }
     }
 
-    /// <summary>
-    /// Change beetle state and optionally set duration.
-    /// </summary>
+    private bool IsCollidingWithBeetle()
+    {
+        Collider2D[] hits = Physics2D.OverlapBoxAll(boxCollider.bounds.center, boxCollider.bounds.size, 0f);
+        foreach (var c in hits)
+        {
+            if (c != boxCollider && c.CompareTag("Bettle"))
+                return true;
+        }
+        return false;
+    }
+
+    private bool IsCollidingWithPatrolPoint()
+    {
+        if (patrolPoints == null) return false;
+        foreach (var pt in patrolPoints)
+        {
+            Collider2D col = pt.GetComponent<Collider2D>();
+            if (col != null && boxCollider.bounds.Intersects(col.bounds))
+                return true;
+        }
+        return false;
+    }
+
     protected void ChangeState(BeetleState newState, float duration = 0f)
     {
         state = newState;
         stateTimer = duration;
-        Debug.Log("New state: " + newState);
+
+        if (newState == BeetleState.Idle)
+            noCollisionTimer = idleRecoveryDelay;
+
         animator.SetBool("isWalking", newState == BeetleState.Walking);
         animator.SetBool("isFallen", newState == BeetleState.Fallen);
         animator.SetBool("isTurning", newState == BeetleState.Turning);
@@ -178,9 +228,6 @@ public class Beetle : MonoBehaviour
         animator.SetBool("isSpining", newState == BeetleState.Spining);
     }
 
-    /// <summary>
-    /// Knock down the beetle (Fallen state).
-    /// </summary>
     public void KnockDown()
     {
         if (state != BeetleState.Fallen)
