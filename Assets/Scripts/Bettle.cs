@@ -26,7 +26,6 @@ public class Beetle : MonoBehaviour
     public float maxIdleTime = 2f;
     // tempo mínimo sem colisão antes de sair de Idle
     public float idleRecoveryDelay = 0.5f;
-    // variáveis internas
     private float noCollisionTimer;
 
     [Header("Patrol Settings (Optional)")]
@@ -47,7 +46,6 @@ public class Beetle : MonoBehaviour
     private float turnTimer;
     private int currentIndex;
     private float zigzagTimer;
-    private int patrolSign = 1;
     private bool canBePreyed = false;
 
     // Components
@@ -72,45 +70,31 @@ public class Beetle : MonoBehaviour
         stateTimer -= Time.deltaTime;
         turnTimer -= Time.deltaTime;
 
-
         bool colliding = IsCollidingWithBeetle();
 
         switch (state)
         {
             case BeetleState.Walking:
                 PerformWalk();
-
                 if (turnTimer <= 0f)
                 {
                     if (!colliding && Random.value < turnChance && !IsCollidingWithPatrolPoint())
                         ChangeState(BeetleState.Turning, 0.75f);
                     turnTimer = turnInterval;
                 }
-
                 if (!colliding)
-                TryEnterIdle(colliding);
+                    TryEnterIdle(colliding);
                 break;
 
             case BeetleState.Idle:
-                // decremente o tempo de Idle normalmente
                 stateTimer -= Time.deltaTime;
-
                 if (colliding)
-                {
-                    // resetamos o timer de recuperação sempre que colidir
                     noCollisionTimer = idleRecoveryDelay;
-                }
                 else
-                {
-                    // contamos o tempo sem colisões
                     noCollisionTimer -= Time.deltaTime;
-                }
 
-                // só saímos de Idle se o tempo mínimo de Idle expirou E o tempo de "sem colisão" também
                 if (stateTimer <= 0f && noCollisionTimer <= 0f)
-                {
                     ChangeState(BeetleState.Walking);
-                }
                 break;
 
             case BeetleState.Turning:
@@ -119,27 +103,19 @@ public class Beetle : MonoBehaviour
                     spriteRenderer.flipX = !spriteRenderer.flipX;
                     if (patrolPoints != null && patrolPoints.Count > 0)
                     {
-                        patrolSign *= -1;
-                        currentIndex = (currentIndex + patrolSign + patrolPoints.Count) % patrolPoints.Count;
+                        // advance to next patrol point in sequence
+                        currentIndex = (currentIndex + 1) % patrolPoints.Count;
                         if (IsCollidingWithPatrolPoint())
-                        {
                             ChangeState(BeetleState.Walking);
-                        }
+                        else if (IsCollidingWithBeetle())
+                            ChangeState(BeetleState.Idle);
                         else
-                        {
-                            if (IsCollidingWithBeetle())
-                            {
-                                ChangeState(BeetleState.Idle);
-                            }
-                            else
-                            {
-                                ChangeState(BeetleState.Walking);
-                            }
-                        }
+                            ChangeState(BeetleState.Walking);
                     }
                     else
                     {
                         direction = -direction;
+                        ChangeState(BeetleState.Walking);
                     }
                 }
                 break;
@@ -168,15 +144,17 @@ public class Beetle : MonoBehaviour
             move = (toTarget + perp * Mathf.Sin(zigzagTimer) * zigzagAmplitude).normalized;
 
             if (Vector2.Distance(transform.position, target) < 0.1f)
-            {
-                ChangeState(BeetleState.Turning, 0.75f);
-            }
+                if (currentIndex == 0 || currentIndex == patrolPoints.Count - 1)
+                    ChangeState(BeetleState.Turning, 0.75f);
+                else
+                {
+                    currentIndex = (currentIndex + 1) % patrolPoints.Count;
+                }
         }
         else
         {
             move = direction.normalized;
         }
-
         lastMove = move;
         transform.Translate(move * speed * Time.deltaTime);
     }
@@ -185,19 +163,15 @@ public class Beetle : MonoBehaviour
     {
         if (colliding) return;
         if (Random.value < idleChancePerSecond * Time.deltaTime)
-        {
             ChangeState(BeetleState.Idle, Random.Range(minIdleTime, maxIdleTime));
-        }
     }
 
     private bool IsCollidingWithBeetle()
     {
         Collider2D[] hits = Physics2D.OverlapBoxAll(boxCollider.bounds.center, boxCollider.bounds.size, 0f);
         foreach (var c in hits)
-        {
-            if (c != boxCollider && c.CompareTag("Bettle"))
+            if (c != boxCollider && c.CompareTag("Beetle"))
                 return true;
-        }
         return false;
     }
 
@@ -217,10 +191,8 @@ public class Beetle : MonoBehaviour
     {
         state = newState;
         stateTimer = duration;
-
         if (newState == BeetleState.Idle)
             noCollisionTimer = idleRecoveryDelay;
-
         animator.SetBool("isWalking", newState == BeetleState.Walking);
         animator.SetBool("isFallen", newState == BeetleState.Fallen);
         animator.SetBool("isTurning", newState == BeetleState.Turning);
