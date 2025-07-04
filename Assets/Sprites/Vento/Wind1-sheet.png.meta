@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 1f337f5b66254b947b78ed44dfac78c0
+guid: c0adbd105539a1c4ea2aebc51d5e5cdf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3387380975125120069
-    second: placeholder_fundo_0
+      213: 1739092226168266919
+    second: Wind1-sheet_0
+  - first:
+      213: 5502562173833723230
+    second: Wind1-sheet_1
+  - first:
+      213: -3594644855574073467
+    second: Wind1-sheet_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -24,7 +30,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -74,7 +80,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -113,23 +119,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: placeholder_fundo_0
+      name: Wind1-sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 800
-        height: 450
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 38
+        height: 36
+      alignment: 9
+      pivot: {x: 0.95059377, y: 0.061870925}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 544cf3dbc05620f20800000000000000
-      internalID: 3387380975125120069
+      spriteID: 7a027646a2f722810800000000000000
+      internalID: 1739092226168266919
       vertices: []
       indices: 
       edges: []
@@ -138,7 +144,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 78e373e739b215f42b17003470c5d3ba
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +154,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      placeholder_fundo_0: 3387380975125120069
+      Wind1-sheet_0: 1739092226168266919
+      Wind1-sheet_1: 5502562173833723230
+      Wind1-sheet_2: -3594644855574073467
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

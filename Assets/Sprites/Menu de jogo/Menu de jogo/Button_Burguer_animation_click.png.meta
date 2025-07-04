@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: 1f337f5b66254b947b78ed44dfac78c0
+guid: 39a1a2f9fd2e0ee40825819598bf6cc9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3387380975125120069
-    second: placeholder_fundo_0
+      213: -4660529908593276889
+    second: Button_Burguer_animation_click_0
+  - first:
+      213: 1526840928707662433
+    second: Button_Burguer_animation_click_1
+  - first:
+      213: -1567823119484384515
+    second: Button_Burguer_animation_click_2
+  - first:
+      213: -9173142478047135452
+    second: Button_Burguer_animation_click_3
+  - first:
+      213: 5093863632496271374
+    second: Button_Burguer_animation_click_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +125,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: placeholder_fundo_0
+      name: Button_Burguer_animation_click_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 800
-        height: 450
+        width: 45
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +140,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 544cf3dbc05620f20800000000000000
-      internalID: 3387380975125120069
+      spriteID: 728c63d9db8725fb0800000000000000
+      internalID: -4660529908593276889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Burguer_animation_click_1
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 0
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 162d5203cbd603510800000000000000
+      internalID: 1526840928707662433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Burguer_animation_click_2
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 0
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfa0d74fd29fd3ae0800000000000000
+      internalID: -1567823119484384515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Burguer_animation_click_3
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 0
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42934f1848372b080800000000000000
+      internalID: -9173142478047135452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Burguer_animation_click_4
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e00a83d3cf901b640800000000000000
+      internalID: 5093863632496271374
       vertices: []
       indices: 
       edges: []
@@ -138,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f1ce534a9fbcc1e4ebf7c9dd55e6d33e
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +248,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      placeholder_fundo_0: 3387380975125120069
+      Button_Burguer_animation_click_0: -4660529908593276889
+      Button_Burguer_animation_click_1: 1526840928707662433
+      Button_Burguer_animation_click_2: -1567823119484384515
+      Button_Burguer_animation_click_3: -9173142478047135452
+      Button_Burguer_animation_click_4: 5093863632496271374
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

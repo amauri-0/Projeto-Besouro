@@ -1,5 +1,6 @@
-using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 [System.Serializable]
 public enum Morphotype
@@ -8,6 +9,8 @@ public enum Morphotype
     Red,
     Yellow
 }
+
+public enum HabitatType { Earth, Grass }
 
 public enum BeetleState { Walking, Idle, Turning, Fallen, Spining }
 
@@ -36,6 +39,9 @@ public class Beetle : MonoBehaviour
     [Header("Morphotype Selection")]
     public Morphotype morphotype;
 
+    [Header("Habitat Type (Earth or Grass)")]
+    public HabitatType habitat;
+
     // State & movement
     protected BeetleState state;
     protected float stateTimer;
@@ -46,12 +52,15 @@ public class Beetle : MonoBehaviour
     private float turnTimer;
     private int currentIndex;
     private float zigzagTimer;
-    private bool canBePreyed = false;
 
     // Components
     private SpriteRenderer spriteRenderer;
     private Animator animator;
     private BoxCollider2D boxCollider;
+
+    public Sprite grassCursorSprite;
+    private Texture2D grassCursorTex;
+    public GameObject windEffectPrefab;
 
     void Awake()
     {
@@ -63,6 +72,10 @@ public class Beetle : MonoBehaviour
         turnTimer = Random.Range(0f, turnInterval);
         zigzagTimer = Random.Range(0f, 1.5f);
         ChangeState(BeetleState.Walking);
+
+        // extrai a Texture2D do Sprite
+        if (grassCursorSprite != null)
+            grassCursorTex = grassCursorSprite.texture;
     }
 
     void Update()
@@ -204,15 +217,58 @@ public class Beetle : MonoBehaviour
     {
         if (state != BeetleState.Fallen)
         {
+            if (this.habitat == HabitatType.Earth)
+            {
+                return;
+            }
+
+            if (windEffectPrefab == null) return;
+            // 1) Pega a posição do clique na tela
+            Vector3 screenPos = Input.mousePosition;
+
+            // 2) Converte para posição no mundo, z = 0 para 2D
+            Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
+            worldPos.z = 0f;
+
+            // 3) Instancia o efeito ali
+            Instantiate(windEffectPrefab, worldPos, Quaternion.identity);
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+
             ChangeState(BeetleState.Fallen);
-            canBePreyed = true;
+            this.habitat = HabitatType.Earth;
+            StartCoroutine(FallToY(1.6f, 0.3f));  // 0.3s de duração, por exemplo
         }
     }
 
-    public bool CanBePreyed() => canBePreyed;
+    private IEnumerator FallToY(float targetY, float duration)
+    {
+        Vector3 start = transform.position;
+        Vector3 end = new Vector3(start.x, targetY, start.z);
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            float t = elapsed / duration;
+            transform.position = Vector3.Lerp(start, end, t);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        transform.position = end;
+    }
 
     void OnMouseDown()
     {
         KnockDown();
+    }
+
+    void OnMouseEnter()
+    {
+        if (habitat == HabitatType.Grass && grassCursorTex != null)
+            Cursor.SetCursor(grassCursorTex, Vector2.zero, CursorMode.Auto);
+    }
+    void OnMouseExit()
+    {
+        if (habitat == HabitatType.Grass)
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
 }

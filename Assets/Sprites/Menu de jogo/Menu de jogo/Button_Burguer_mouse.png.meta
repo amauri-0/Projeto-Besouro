@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1f337f5b66254b947b78ed44dfac78c0
+guid: bbeeb817d2129104ebf532665c1f2510
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3387380975125120069
-    second: placeholder_fundo_0
+      213: -6513984111988088067
+    second: Button_Burguer_mouse_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: placeholder_fundo_0
+      name: Button_Burguer_mouse_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 800
-        height: 450
+        x: 4
+        y: 4
+        width: 37
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 544cf3dbc05620f20800000000000000
-      internalID: 3387380975125120069
+      spriteID: df2696476fda995a0800000000000000
+      internalID: -6513984111988088067
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      placeholder_fundo_0: 3387380975125120069
+      Button_Burguer_mouse_0: -6513984111988088067
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
