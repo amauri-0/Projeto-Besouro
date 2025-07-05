@@ -42,6 +42,9 @@ public class Beetle : MonoBehaviour
     [Header("Habitat Type (Earth or Grass)")]
     public HabitatType habitat;
 
+    [HideInInspector]
+    public GameManager.BeetleConfig config;
+
     // State & movement
     protected BeetleState state;
     protected float stateTimer;

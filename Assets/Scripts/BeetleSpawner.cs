@@ -30,7 +30,15 @@ public class BeetleSpawner : MonoBehaviour
             Debug.LogError($"Precisam ser {expected} objetos pais de patrol points (23). Atualmente: {patrolPointParents.Count}.");
             return;
         }
-        SpawnBeetles();
+        //SpawnBeetles();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            SpawnBeetles();
+        }
     }
 
     void SpawnBeetles()
@@ -42,10 +50,15 @@ public class BeetleSpawner : MonoBehaviour
             return;
         }
 
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+
         int[] earthCounts = new int[EarthPairCount];
         bool[] grassUsed = new bool[GrassPairCount];
 
-        for (int i = 0; i < gm.beetleConfigs.Length; i++)
+        for (int i = 0; i < gm.beetleConfigs.Count; i++)
         {
             var cfg = gm.beetleConfigs[i];
             int parentIndex;
@@ -91,11 +104,12 @@ public class BeetleSpawner : MonoBehaviour
             float xMax = Mathf.Max(ptA.position.x, ptB.position.x);
             float y = ptA.position.y;
 
+            var prefab = beetlePrefabs[(int)cfg.morphotype];
+
             if (cfg.habitat == HabitatType.Grass)
             {
                 // Spawn sem checagem de colisão
                 Vector2 spawnPos = new Vector2(Random.Range(xMin, xMax), y);
-                var prefab = beetlePrefabs[(int)cfg.morphotype];
                 var go = Instantiate(prefab, spawnPos, Quaternion.identity, transform);
                 var beetle = go.GetComponent<Beetle>();
                 if (beetle != null)
@@ -103,6 +117,7 @@ public class BeetleSpawner : MonoBehaviour
                     beetle.patrolPoints = new List<Transform> { ptA, ptB };
                     beetle.morphotype = cfg.morphotype;
                     beetle.habitat = cfg.habitat;
+                    beetle.config = cfg; // atribui config para grama
                 }
             }
             else
@@ -114,7 +129,6 @@ public class BeetleSpawner : MonoBehaviour
                     Vector2 spawnPos = new Vector2(Random.Range(xMin, xMax), y);
                     if (Physics2D.OverlapCircle(spawnPos, spawnCheckRadius) == null)
                     {
-                        var prefab = beetlePrefabs[(int)cfg.morphotype];
                         var go = Instantiate(prefab, spawnPos, Quaternion.identity, transform);
                         var beetle = go.GetComponent<Beetle>();
                         if (beetle != null)
@@ -122,6 +136,7 @@ public class BeetleSpawner : MonoBehaviour
                             beetle.patrolPoints = new List<Transform> { ptA, ptB };
                             beetle.morphotype = cfg.morphotype;
                             beetle.habitat = cfg.habitat;
+                            beetle.config = cfg;
                         }
                         spawned = true;
                         break;

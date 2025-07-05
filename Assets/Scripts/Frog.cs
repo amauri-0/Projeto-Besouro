@@ -101,8 +101,13 @@ public class Frog : MonoBehaviour
         // Espera para destruir o besouro após tempo específico
         if (target != null)
             yield return new WaitForSeconds(destroyDelay);
+
         if (target != null)
+        {
+            // Atualiza GameManager antes de destruir
+            GameManager.Instance.OnBeetleEaten(target.config);
             Destroy(target.gameObject);
+        }
 
         // Obtém duração da animação
         var clips = animator.runtimeAnimatorController.animationClips;

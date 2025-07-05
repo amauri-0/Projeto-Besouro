@@ -1967,6 +1967,7 @@ MonoBehaviour:
     habitat: 1
   - morphotype: 0
     habitat: 1
+  eatenConfigs: []
 --- !u!4 &719111082
 Transform:
   m_ObjectHideFlags: 0
@@ -2574,7 +2575,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.005, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2584,7 +2585,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.3, y: 2}
+  m_Size: {x: 0.36, y: 2}
   m_EdgeRadius: 0
 --- !u!1 &830121788
 GameObject:
@@ -3656,7 +3657,7 @@ MonoBehaviour:
   - {fileID: 1819799239223996870, guid: 6d7d9f19352614c42af743c94a8f81ce, type: 3}
   - {fileID: 2166530999428967467, guid: 04e94b22b8b184548a0bc0e3285982bd, type: 3}
   spawnCheckRadius: 0.4
-  maxSpawnAttempts: 10
+  maxSpawnAttempts: 20
 --- !u!4 &1086366855
 Transform:
   m_ObjectHideFlags: 0
