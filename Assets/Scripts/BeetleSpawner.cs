@@ -36,13 +36,15 @@ public class BeetleSpawner : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Keypad2))
-        {
             SpawnBeetles();
-        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad3))
+            ClearBeetles();
     }
 
-    void SpawnBeetles()
+    public void SpawnBeetles()
     {
+        ClearBeetles();
         var gm = GameManager.Instance;
         if (gm == null)
         {
@@ -145,6 +147,18 @@ public class BeetleSpawner : MonoBehaviour
                 if (!spawned)
                     Debug.LogError($"Falha ao spawnar besouro #{i} no parent {parentIndex} após {maxSpawnAttempts} tentativas.");
             }
+        }
+    }
+
+    public void ClearBeetles()
+    {
+        // Itera pelos filhos diretos sob este GameObject
+        for (int i = transform.childCount - 1; i >= 0; i--)
+        {
+            var child = transform.GetChild(i);
+            // Se tiver o componente Beetle, destrói
+            if (child.GetComponent<Beetle>() != null)
+                Destroy(child.gameObject);
         }
     }
 }

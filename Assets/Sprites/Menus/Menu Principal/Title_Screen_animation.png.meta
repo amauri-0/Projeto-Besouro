@@ -1,0 +1,980 @@
+fileFormatVersion: 2
+guid: 3d4431a50709e724888b0788e696f3c2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8364744396330659839
+    second: Title_Screen_animation_0
+  - first:
+      213: 6986514000866258212
+    second: Title_Screen_animation_1
+  - first:
+      213: 4537611478841870598
+    second: Title_Screen_animation_2
+  - first:
+      213: 7083907051452025397
+    second: Title_Screen_animation_3
+  - first:
+      213: -4368957066675622855
+    second: Title_Screen_animation_4
+  - first:
+      213: -8637551648969836745
+    second: Title_Screen_animation_5
+  - first:
+      213: -152219353288062011
+    second: Title_Screen_animation_6
+  - first:
+      213: 2828627702604557371
+    second: Title_Screen_animation_7
+  - first:
+      213: -4112364499735180163
+    second: Title_Screen_animation_8
+  - first:
+      213: 3497491386136289217
+    second: Title_Screen_animation_9
+  - first:
+      213: 2228769546945205122
+    second: Title_Screen_animation_10
+  - first:
+      213: 8207282052186475291
+    second: Title_Screen_animation_11
+  - first:
+      213: 6647539885491781223
+    second: Title_Screen_animation_12
+  - first:
+      213: -3569776043507056362
+    second: Title_Screen_animation_13
+  - first:
+      213: -2019179284485375351
+    second: Title_Screen_animation_14
+  - first:
+      213: 2607705169790635203
+    second: Title_Screen_animation_15
+  - first:
+      213: -5742739514091768658
+    second: Title_Screen_animation_16
+  - first:
+      213: -2032121102922305842
+    second: Title_Screen_animation_17
+  - first:
+      213: -3956880318427230770
+    second: Title_Screen_animation_18
+  - first:
+      213: -2775438558173901669
+    second: Title_Screen_animation_19
+  - first:
+      213: -2285170644326227270
+    second: Title_Screen_animation_20
+  - first:
+      213: -5742380251387931009
+    second: Title_Screen_animation_21
+  - first:
+      213: -6848501972714454130
+    second: Title_Screen_animation_22
+  - first:
+      213: -8337028494030649383
+    second: Title_Screen_animation_23
+  - first:
+      213: -5363517469264825368
+    second: Title_Screen_animation_24
+  - first:
+      213: -5879360264717785950
+    second: Title_Screen_animation_25
+  - first:
+      213: -635877519236405799
+    second: Title_Screen_animation_26
+  - first:
+      213: -2384641066762282109
+    second: Title_Screen_animation_27
+  - first:
+      213: -996527646524967875
+    second: Title_Screen_animation_28
+  - first:
+      213: -1284642536929412219
+    second: Title_Screen_animation_29
+  - first:
+      213: 6405033559034022444
+    second: Title_Screen_animation_30
+  - first:
+      213: 124270466854017980
+    second: Title_Screen_animation_31
+  - first:
+      213: -6896289132402148941
+    second: Title_Screen_animation_32
+  - first:
+      213: -8594466734694392259
+    second: Title_Screen_animation_33
+  - first:
+      213: -4820030227088761843
+    second: Title_Screen_animation_34
+  - first:
+      213: 3448842364725299561
+    second: Title_Screen_animation_35
+  - first:
+      213: -1388300050623972542
+    second: Title_Screen_animation_36
+  - first:
+      213: -1426092667601866560
+    second: Title_Screen_animation_37
+  - first:
+      213: -7172313637669325815
+    second: Title_Screen_animation_38
+  - first:
+      213: 5158431060157568714
+    second: Title_Screen_animation_39
+  - first:
+      213: 5772054939237771063
+    second: Title_Screen_animation_40
+  - first:
+      213: 304704570536270140
+    second: Title_Screen_animation_41
+  - first:
+      213: -3546904626576850918
+    second: Title_Screen_animation_42
+  - first:
+      213: -1578147028574376538
+    second: Title_Screen_animation_43
+  - first:
+      213: -9043288303959717945
+    second: Title_Screen_animation_44
+  - first:
+      213: 4422451505470513260
+    second: Title_Screen_animation_45
+  - first:
+      213: -2147813782233391710
+    second: Title_Screen_animation_46
+  - first:
+      213: -224451937589165888
+    second: Title_Screen_animation_47
+  - first:
+      213: 4022401966363770339
+    second: Title_Screen_animation_48
+  - first:
+      213: -4851286429634829919
+    second: Title_Screen_animation_49
+  - first:
+      213: 5157904275354624327
+    second: Title_Screen_animation_50
+  - first:
+      213: 8208246168997737728
+    second: Title_Screen_animation_51
+  - first:
+      213: -6902754388298293235
+    second: Title_Screen_animation_52
+  - first:
+      213: -6948902005724938169
+    second: Title_Screen_animation_53
+  - first:
+      213: 5470838049603388667
+    second: Title_Screen_animation_54
+  - first:
+      213: -2208581628243059343
+    second: Title_Screen_animation_55
+  - first:
+      213: 2790560268766945811
+    second: Title_Screen_animation_56
+  - first:
+      213: -6130265840992370053
+    second: Title_Screen_animation_57
+  - first:
+      213: 5447192766313389551
+    second: Title_Screen_animation_58
+  - first:
+      213: -3270615881245529234
+    second: Title_Screen_animation_59
+  - first:
+      213: 8480109060787604140
+    second: Title_Screen_animation_60
+  - first:
+      213: 8299377605205289500
+    second: Title_Screen_animation_61
+  - first:
+      213: -557665267366660536
+    second: Title_Screen_animation_62
+  - first:
+      213: 8672562131706662283
+    second: Title_Screen_animation_63
+  - first:
+      213: -451093730678680162
+    second: Title_Screen_animation_64
+  - first:
+      213: 8723458868494526092
+    second: Title_Screen_animation_65
+  - first:
+      213: -5072981162316964285
+    second: Title_Screen_animation_66
+  - first:
+      213: 2728574316171737736
+    second: Title_Screen_animation_67
+  - first:
+      213: 5810498447526597392
+    second: Title_Screen_animation_68
+  - first:
+      213: 4470131790341735812
+    second: Title_Screen_animation_69
+  - first:
+      213: 8764091454945563586
+    second: Title_Screen_animation_70
+  - first:
+      213: -4816843759091736086
+    second: Title_Screen_animation_71
+  - first:
+      213: -3116712834777631553
+    second: Title_Screen_animation_72
+  - first:
+      213: 5843931069635008981
+    second: Title_Screen_animation_73
+  - first:
+      213: -8647111201139551995
+    second: Title_Screen_animation_74
+  - first:
+      213: -7216368809653895234
+    second: Title_Screen_animation_75
+  - first:
+      213: -4102805693275597076
+    second: Title_Screen_animation_76
+  - first:
+      213: 1864171425054333935
+    second: Title_Screen_animation_77
+  - first:
+      213: 8368881289259183424
+    second: Title_Screen_animation_78
+  - first:
+      213: -9115618872396674283
+    second: Title_Screen_animation_79
+  - first:
+      213: 2022321957860611690
+    second: Title_Screen_animation_80
+  - first:
+      213: 6538887220496178889
+    second: Title_Screen_animation_81
+  - first:
+      213: 6330477356220767211
+    second: Title_Screen_animation_82
+  - first:
+      213: -395331933675375552
+    second: Title_Screen_animation_83
+  - first:
+      213: -2942097894308748506
+    second: Title_Screen_animation_84
+  - first:
+      213: 6211623586890406808
+    second: Title_Screen_animation_85
+  - first:
+      213: -4485855712253866300
+    second: Title_Screen_animation_86
+  - first:
+      213: 7899274090808641218
+    second: Title_Screen_animation_87
+  - first:
+      213: 4885555927491027698
+    second: Title_Screen_animation_88
+  - first:
+      213: 506785672664706168
+    second: Title_Screen_animation_89
+  - first:
+      213: 877186615398232513
+    second: Title_Screen_animation_90
+  - first:
+      213: -1723282345238792920
+    second: Title_Screen_animation_91
+  - first:
+      213: -412792792746128822
+    second: Title_Screen_animation_92
+  - first:
+      213: 3693250289346875968
+    second: Title_Screen_animation_93
+  - first:
+      213: 6926116140390344536
+    second: Title_Screen_animation_94
+  - first:
+      213: 6224954498791853174
+    second: Title_Screen_animation_95
+  - first:
+      213: -7306935615704040046
+    second: Title_Screen_animation_96
+  - first:
+      213: -2319434438416387751
+    second: Title_Screen_animation_97
+  - first:
+      213: -1076250539821295888
+    second: Title_Screen_animation_98
+  - first:
+      213: -3233278837366313150
+    second: Title_Screen_animation_99
+  - first:
+      213: 3041623611816139419
+    second: Title_Screen_animation_100
+  - first:
+      213: -5763601494464555888
+    second: Title_Screen_animation_101
+  - first:
+      213: -7132519723641552905
+    second: Title_Screen_animation_102
+  - first:
+      213: 6296830246860316875
+    second: Title_Screen_animation_103
+  - first:
+      213: 7681266538269572112
+    second: Title_Screen_animation_104
+  - first:
+      213: 6904160038629848624
+    second: Title_Screen_animation_105
+  - first:
+      213: -4713927002663147085
+    second: Title_Screen_animation_106
+  - first:
+      213: -7286597689859490858
+    second: Title_Screen_animation_107
+  - first:
+      213: 2704035204975958548
+    second: Title_Screen_animation_108
+  - first:
+      213: 228046447691738186
+    second: Title_Screen_animation_109
+  - first:
+      213: 5664797910322166773
+    second: Title_Screen_animation_110
+  - first:
+      213: -2510083755369242937
+    second: Title_Screen_animation_111
+  - first:
+      213: 3420926004147896741
+    second: Title_Screen_animation_112
+  - first:
+      213: 9079847937041197173
+    second: Title_Screen_animation_113
+  - first:
+      213: -4636086292850146863
+    second: Title_Screen_animation_114
+  - first:
+      213: 1265310763598210887
+    second: Title_Screen_animation_115
+  - first:
+      213: 2141605850927966310
+    second: Title_Screen_animation_116
+  - first:
+      213: 7347404574468818263
+    second: Title_Screen_animation_117
+  - first:
+      213: 5057322876308360773
+    second: Title_Screen_animation_118
+  - first:
+      213: 6994744615404005000
+    second: Title_Screen_animation_119
+  - first:
+      213: 3407372307969583030
+    second: Title_Screen_animation_120
+  - first:
+      213: 4686943920695540103
+    second: Title_Screen_animation_121
+  - first:
+      213: -3555681324173987691
+    second: Title_Screen_animation_122
+  - first:
+      213: -1999557441238138159
+    second: Title_Screen_animation_123
+  - first:
+      213: 681907234434969225
+    second: Title_Screen_animation_124
+  - first:
+      213: 3644485476332093710
+    second: Title_Screen_animation_125
+  - first:
+      213: -3363825230044304581
+    second: Title_Screen_animation_126
+  - first:
+      213: -1906630947820857115
+    second: Title_Screen_animation_127
+  - first:
+      213: 7708630424007746554
+    second: Title_Screen_animation_128
+  - first:
+      213: -4547079422716173444
+    second: Title_Screen_animation_129
+  - first:
+      213: 3523696316763507369
+    second: Title_Screen_animation_130
+  - first:
+      213: 5880260876303287951
+    second: Title_Screen_animation_131
+  - first:
+      213: 7260241113299252888
+    second: Title_Screen_animation_132
+  - first:
+      213: 7115336034057227000
+    second: Title_Screen_animation_133
+  - first:
+      213: 154390182999777655
+    second: Title_Screen_animation_134
+  - first:
+      213: 4444045537924107008
+    second: Title_Screen_animation_135
+  - first:
+      213: -322813544316838064
+    second: Title_Screen_animation_136
+  - first:
+      213: 4534444114203057203
+    second: Title_Screen_animation_137
+  - first:
+      213: 3507245416915342964
+    second: Title_Screen_animation_138
+  - first:
+      213: -2678110837205415079
+    second: Title_Screen_animation_139
+  - first:
+      213: 4547011668569665365
+    second: Title_Screen_animation_140
+  - first:
+      213: 3920326986876528879
+    second: Title_Screen_animation_141
+  - first:
+      213: 3035063117849529299
+    second: Title_Screen_animation_142
+  - first:
+      213: 5520966275785320635
+    second: Title_Screen_animation_143
+  - first:
+      213: 7473711133997318236
+    second: Title_Screen_animation_144
+  - first:
+      213: -3451229768135472735
+    second: Title_Screen_animation_145
+  - first:
+      213: -1950314074380709750
+    second: Title_Screen_animation_146
+  - first:
+      213: 7474941011693633814
+    second: Title_Screen_animation_147
+  - first:
+      213: -527121676858105287
+    second: Title_Screen_animation_148
+  - first:
+      213: 1395330616673947893
+    second: Title_Screen_animation_149
+  - first:
+      213: 3905409256213344395
+    second: Title_Screen_animation_150
+  - first:
+      213: 5216198792590757123
+    second: Title_Screen_animation_151
+  - first:
+      213: 6073985589595082166
+    second: Title_Screen_animation_152
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Title_Screen_animation_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 236
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fff6a3cc5ba851470800000000000000
+      internalID: 8364744396330659839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_Screen_animation_1
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 0
+        width: 236
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42d2de7b77515f060800000000000000
+      internalID: 6986514000866258212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_Screen_animation_2
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 0
+        width: 236
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 609ca154995d8fe30800000000000000
+      internalID: 4537611478841870598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_Screen_animation_3
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 0
+        width: 236
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53aceaf5ee71f4260800000000000000
+      internalID: 7083907051452025397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_Screen_animation_4
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 0
+        width: 236
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93cedd112b85e53c0800000000000000
+      internalID: -4368957066675622855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_Screen_animation_5
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 0
+        width: 236
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 737301af980412880800000000000000
+      internalID: -8637551648969836745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_Screen_animation_6
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 0
+        width: 236
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cb435ffd4533edf0800000000000000
+      internalID: -152219353288062011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_Screen_animation_7
+      rect:
+        serializedVersion: 2
+        x: 1652
+        y: 0
+        width: 236
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3ce297a8ed414720800000000000000
+      internalID: 2828627702604557371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_Screen_animation_8
+      rect:
+        serializedVersion: 2
+        x: 1888
+        y: 0
+        width: 236
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7c8b569642fde6c0800000000000000
+      internalID: -4112364499735180163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_Screen_animation_9
+      rect:
+        serializedVersion: 2
+        x: 2124
+        y: 0
+        width: 236
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cf54ab92e5998030800000000000000
+      internalID: 3497491386136289217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_Screen_animation_10
+      rect:
+        serializedVersion: 2
+        x: 2360
+        y: 0
+        width: 236
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28390eb281e2eee10800000000000000
+      internalID: 2228769546945205122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_Screen_animation_11
+      rect:
+        serializedVersion: 2
+        x: 2596
+        y: 0
+        width: 236
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1b830cda8f16e170800000000000000
+      internalID: 8207282052186475291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_Screen_animation_12
+      rect:
+        serializedVersion: 2
+        x: 2832
+        y: 0
+        width: 236
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76e7af04e4ec04c50800000000000000
+      internalID: 6647539885491781223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_Screen_animation_13
+      rect:
+        serializedVersion: 2
+        x: 3068
+        y: 0
+        width: 236
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61100171a9b957ec0800000000000000
+      internalID: -3569776043507056362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_Screen_animation_14
+      rect:
+        serializedVersion: 2
+        x: 3304
+        y: 0
+        width: 236
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98afb6a832f6af3e0800000000000000
+      internalID: -2019179284485375351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_Screen_animation_15
+      rect:
+        serializedVersion: 2
+        x: 3540
+        y: 0
+        width: 236
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cc0254290e603420800000000000000
+      internalID: 2607705169790635203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_Screen_animation_16
+      rect:
+        serializedVersion: 2
+        x: 3776
+        y: 0
+        width: 236
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea4f5f896d0bd40b0800000000000000
+      internalID: -5742739514091768658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b38c7145ffbae7a4cbf4084895bfaea4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Title_Screen_animation_0: 8364744396330659839
+      Title_Screen_animation_1: 6986514000866258212
+      Title_Screen_animation_10: 2228769546945205122
+      Title_Screen_animation_11: 8207282052186475291
+      Title_Screen_animation_12: 6647539885491781223
+      Title_Screen_animation_13: -3569776043507056362
+      Title_Screen_animation_14: -2019179284485375351
+      Title_Screen_animation_15: 2607705169790635203
+      Title_Screen_animation_16: -5742739514091768658
+      Title_Screen_animation_2: 4537611478841870598
+      Title_Screen_animation_3: 7083907051452025397
+      Title_Screen_animation_4: -4368957066675622855
+      Title_Screen_animation_5: -8637551648969836745
+      Title_Screen_animation_6: -152219353288062011
+      Title_Screen_animation_7: 2828627702604557371
+      Title_Screen_animation_8: -4112364499735180163
+      Title_Screen_animation_9: 3497491386136289217
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

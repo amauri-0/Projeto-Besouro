@@ -27,7 +27,6 @@ public class Beetle : MonoBehaviour
     public float idleChancePerSecond = 0.2f;
     public float minIdleTime = 1f;
     public float maxIdleTime = 2f;
-    // tempo mínimo sem colisão antes de sair de Idle
     public float idleRecoveryDelay = 0.5f;
     private float noCollisionTimer;
 

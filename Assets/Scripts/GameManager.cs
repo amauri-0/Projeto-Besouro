@@ -36,8 +36,8 @@ public class GameManager : MonoBehaviour
     [Header("Configurações dos besouros ativos")]
     public List<BeetleConfig> beetleConfigs = new List<BeetleConfig>();
 
-    [HideInInspector]
-    public List<BeetleConfig> eatenConfigs = new List<BeetleConfig>();
+    [HideInInspector] public List<BeetleConfig> eatenConfigs = new List<BeetleConfig>();
+    [HideInInspector] public List<BeetleConfig> driftConfigs = new List<BeetleConfig>();
 
     /// <summary>
     /// Chamado por Frog quando um besouro é comido.
@@ -121,5 +121,24 @@ public class GameManager : MonoBehaviour
         eatenConfigs.Clear();
 
         Debug.Log($"População completada com herança genética. Total atual: {beetleConfigs.Count}");
+    }
+
+
+    public void KillOneThirdByDrift()
+    {
+        int total = beetleConfigs.Count;
+        int toKill = total / 3;
+        var rnd = new System.Random();
+
+        // embaralha índice
+        var indices = Enumerable.Range(0, total).OrderBy(_ => rnd.Next()).Take(toKill).ToList();
+
+        // itera em ordem decrescente para remover sem bagunçar índices
+        foreach (int i in indices.OrderByDescending(i => i))
+        {
+            var cfg = beetleConfigs[i];
+            beetleConfigs.RemoveAt(i);
+            driftConfigs.Add(cfg);
+        }
     }
 }

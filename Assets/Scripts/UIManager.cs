@@ -1,110 +1,272 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
-using UnityEngine.UI;  
 
 public class UIManager : MonoBehaviour
 {
-    [Header("Canvas principal do tutorial")]
-    [Tooltip("Arraste aqui o Canvas principal (contendo todos os panels e a contagem).")]
-    public GameObject mainCanvas;
+    [Header("Stage Containers")]
+    public GameObject parentBeetles;
+    public GameObject parentTutorial;
+    public GameObject parentPredator;
+    public GameObject parentNews;
+    public GameObject parentLosses;
 
-    [Header("Lista de telas do tutorial (qualquer número)")]
-    [Tooltip("Arraste aqui todos os panels/canvases do tutorial, na ordem.")]
+    [Header("Predator Reference")]
+    [Tooltip("Objeto que define o centro da transição circular na fase Predator.")]
+    public Transform predatorTarget;
+
+    [Header("Tutorial Settings")]
     public List<GameObject> tutorialPanels;
+    public Button tutorialPrevButton;
+    public Button tutorialNextButton;
+    public Button skipTutorialButton;
+    private int tutorialIndex = 0;
+    private bool tutorialShown = false;
 
-    [Header("UI da contagem regressiva")]
-    [Tooltip("TMP_Text para exibir 3, 2, 1, Vai!")]
-    public TMPro.TMP_Text countdownText;
+    [Header("Predator Stage")]
+    public float predatorDuration = 15f;
 
-    private int currentIndex = 0;
+    [Header("Cycle Settings")]
+    public int totalCycles = 3;
+    private int currentCycle = 0;
+
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip beetlesClip;
+    public AudioClip predatorClip;
+    public AudioClip newsClip;
+
+    [Header("Transition Panel")]
+    [Tooltip("GameObject que contém o RawImage de transição.")]
+    public GameObject transitionPanelObject;
+    [Tooltip("Material que usa o shader UI/CircleWipe")]
+    public Material transitionMaterial;
+    public float transitionSpeed = 1f;
+
+    [Header("UI References")]
+    public Button newsNextButton;
+    public Button reviewNextButton;
+
+    [Header("Losses UI")]
+    public Transform driftContainer;
+    public Transform eatenContainer;
+    public Sprite[] beetleIcons;       // 0=Black,1=Red,2=Yellow
+    public GameObject iconPrefab;
+
+    [Header("Spawner Reference")]
+    public BeetleSpawner beetleSpawner; // arrastar no Inspector
+
+    private Camera mainCam;
+    private RawImage transitionImage;
+
+    void Awake()
+    {
+        transitionImage = transitionPanelObject.GetComponent<RawImage>();
+        transitionPanelObject.SetActive(false);
+        transitionMaterial.SetFloat("_Progress", 1f);
+    }
 
     void Start()
     {
-        // Ativa o Canvas principal
-        if (mainCanvas != null)
-            mainCanvas.SetActive(true);
+        mainCam = Camera.main;
 
-        // Pausa o jogo
-        Time.timeScale = 0f;
+        // Tutorial buttons
+        tutorialPrevButton.onClick.AddListener(OnTutorialPrev);
+        tutorialNextButton.onClick.AddListener(OnTutorialNext);
+        skipTutorialButton.onClick.AddListener(OnSkipTutorial);
 
-        // Garante que só o primeiro panel esteja ativo
-        for (int i = 0; i < tutorialPanels.Count; i++)
-            tutorialPanels[i].SetActive(i == 0);
+        // Other flows
+        newsNextButton.onClick.AddListener(OnNewsProceed);
+        reviewNextButton.onClick.AddListener(OnReviewProceed);
 
-        // Esconde o texto de contagem até o fim do tutorial
-        countdownText.gameObject.SetActive(false);
+        StartCoroutine(MainFlow());
     }
 
-    // Chamado pelo botão Avançar
-    public void Next()
+    private IEnumerator MainFlow()
     {
-        // fecha o panel atual
-        tutorialPanels[currentIndex].SetActive(false);
-
-        currentIndex++;
-        if (currentIndex < tutorialPanels.Count)
+        while (currentCycle < totalCycles)
         {
-            // mostra o próximo
-            tutorialPanels[currentIndex].SetActive(true);
+            yield return ShowTransition(parentBeetles, true);
+            yield return ShowBeetles();
+
+            if (!tutorialShown)
+            {
+                yield return ShowTransition(parentTutorial, false);
+                yield return RunTutorial();
+                tutorialShown = true;
+            }
+
+            yield return ShowTransition(parentPredator, true);
+            yield return ShowPredator();
+
+            yield return ShowTransition(parentNews, false, predatorTarget);
+            yield return ShowNews();
+            yield return new WaitUntil(() => !newsNextButton.interactable);
+
+            GameManager.Instance.KillOneThirdByDrift();
+            ShowBeetleLosses(
+                GameManager.Instance.driftConfigs,
+                GameManager.Instance.eatenConfigs
+            );
+            GameManager.Instance.RefillByGenetics(21);
+
+            yield return ShowTransition(parentLosses, false);
+            yield return ShowReview();
+            yield return new WaitUntil(() => !reviewNextButton.interactable);
+
+            currentCycle++;
+        }
+    }
+
+    private IEnumerator ShowBeetles()
+    {
+        ActivateOnly(parentBeetles);
+        audioSource.PlayOneShot(beetlesClip);
+        yield return new WaitForSeconds(2f);
+    }
+
+    private IEnumerator RunTutorial()
+    {
+        ActivateOnly(parentTutorial);
+        UpdateTutorialButtons();
+        // mantém enquanto tutorialIndex indica painel válido
+        while (tutorialIndex < tutorialPanels.Count)
+            yield return null;
+    }
+
+    private void UpdateTutorialButtons()
+    {
+        // Prev só clicável quando houver painel anterior
+        tutorialPrevButton.interactable = tutorialIndex > 0;
+        // Next sempre clicável; se no último painel, faz skip
+        tutorialNextButton.interactable = true;
+        skipTutorialButton.interactable = true;
+
+        // Ativa o painel atual (se tutorialIndex < count)
+        for (int i = 0; i < tutorialPanels.Count; i++)
+            tutorialPanels[i].SetActive(i == tutorialIndex);
+    }
+
+    private void OnTutorialPrev()
+    {
+        if (tutorialIndex > 0)
+            tutorialIndex--;
+        UpdateTutorialButtons();
+    }
+
+    private void OnTutorialNext()
+    {
+        if (tutorialIndex < tutorialPanels.Count - 1)
+        {
+            tutorialIndex++;
         }
         else
         {
-            // passou do último → acaba o tutorial
-            EndTutorial();
+            // chega no último -> skip
+            tutorialIndex = tutorialPanels.Count;
         }
+        UpdateTutorialButtons();
     }
 
-    // Chamado pelo botão Voltar
-    public void Previous()
+    private void OnSkipTutorial()
     {
-        if (currentIndex == 0) return;
-
-        // fecha atual
-        tutorialPanels[currentIndex].SetActive(false);
-        currentIndex--;
-
-        // mostra o anterior
-        tutorialPanels[currentIndex].SetActive(true);
+        tutorialIndex = tutorialPanels.Count;
+        UpdateTutorialButtons();
     }
 
-    // Chamado pelo botão Pular
-    public void Skip()
+    private IEnumerator ShowPredator()
     {
-        EndTutorial();
+        ActivateOnly(parentPredator);
+        audioSource.PlayOneShot(predatorClip);
+        yield return new WaitForSeconds(predatorDuration);
     }
 
-    private void EndTutorial()
+    private IEnumerator ShowNews()
     {
-        // garante que todos os panels estejam fechados
-        foreach (var panel in tutorialPanels)
-            panel.SetActive(false);
-
-        // Desativa o Canvas principal
-        if (mainCanvas != null)
-            mainCanvas.SetActive(false);
-
-        // inicia a contagem regressiva
-        StartCoroutine(CountdownAndResume());
+        ActivateOnly(parentNews);
+        audioSource.PlayOneShot(newsClip);
+        newsNextButton.interactable = true;
+        yield return null;
     }
 
-    private IEnumerator CountdownAndResume()
+    private IEnumerator ShowReview()
     {
-        countdownText.gameObject.SetActive(true);
+        ActivateOnly(parentLosses);
+        reviewNextButton.interactable = true;
+        yield return null;
+    }
 
-        // Use WaitForSecondsRealtime porque Time.timeScale está em zero
-        for (int i = 3; i > 0; i--)
+    private void OnNewsProceed() => newsNextButton.interactable = false;
+    private void OnReviewProceed() => reviewNextButton.interactable = false;
+
+    private IEnumerator ShowTransition(GameObject next, bool beetle, Transform centerTarget = null)
+    {
+        transitionPanelObject.SetActive(true);
+        Vector2 centerUV = centerTarget != null
+            ? mainCam.WorldToViewportPoint(centerTarget.position)
+            : new Vector2(0.5f, 0.5f);
+        transitionMaterial.SetVector("_Center", centerUV);
+
+        float p = 1f;
+        while (p > 0f)
         {
-            countdownText.text = i.ToString();
-            yield return new WaitForSecondsRealtime(1f);
+            p -= transitionSpeed * Time.unscaledDeltaTime;
+            transitionMaterial.SetFloat("_Progress", Mathf.Clamp01(p));
+            yield return null;
         }
 
-        countdownText.text = "Vai!";
-        yield return new WaitForSecondsRealtime(1f);
+        ActivateOnly(next);
+        if (beetle)
+        {
+            GameManager.Instance.RefillByGenetics(21);
+            beetleSpawner.SpawnBeetles();
+        }
+        else
+        {
+            GameManager.Instance.RefillByGenetics(21);
+            beetleSpawner.ClearBeetles();
+        }
 
-        // Esconde texto e despausa o jogo
-        countdownText.gameObject.SetActive(false);
-        Time.timeScale = 1f;
+            while (p < 1f)
+            {
+                p += transitionSpeed * Time.unscaledDeltaTime;
+                transitionMaterial.SetFloat("_Progress", Mathf.Clamp01(p));
+                yield return null;
+            }
+
+        transitionPanelObject.SetActive(false);
+    }
+
+    private void ActivateOnly(GameObject go)
+    {
+        var all = new List<GameObject> { parentBeetles, parentTutorial, parentPredator, parentNews, parentLosses };
+        foreach (var obj in all)
+            if (obj != null)
+                obj.SetActive(obj == go);
+    }
+
+    public void ShowBeetleLosses(
+        List<GameManager.BeetleConfig> driftList,
+        List<GameManager.BeetleConfig> eatenList)
+    {
+        foreach (Transform t in driftContainer) Destroy(t.gameObject);
+        foreach (Transform t in eatenContainer) Destroy(t.gameObject);
+
+        foreach (var cfg in driftList)
+            CreateIcon(cfg.morphotype, driftContainer);
+        foreach (var cfg in eatenList)
+            CreateIcon(cfg.morphotype, eatenContainer);
+
+        ActivateOnly(parentLosses);
+    }
+
+    private void CreateIcon(Morphotype m, Transform parent)
+    {
+        var go = Instantiate(iconPrefab, parent);
+        var img = go.GetComponent<Image>();
+        img.sprite = beetleIcons[(int)m];
+        img.preserveAspect = true;
     }
 }
