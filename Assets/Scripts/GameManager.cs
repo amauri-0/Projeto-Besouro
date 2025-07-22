@@ -119,6 +119,7 @@ public class GameManager : MonoBehaviour
         // Atualiza o vetor principal e limpa comidos
         beetleConfigs.AddRange(novosTotal);
         eatenConfigs.Clear();
+        driftConfigs.Clear();
 
         Debug.Log($"População completada com herança genética. Total atual: {beetleConfigs.Count}");
     }

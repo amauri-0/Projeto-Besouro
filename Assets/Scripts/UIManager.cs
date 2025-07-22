@@ -100,17 +100,13 @@ public class UIManager : MonoBehaviour
 
             yield return ShowTransition(parentPredator, true);
             yield return ShowPredator();
+            ShowBeetleEaten(GameManager.Instance.eatenConfigs);
 
             yield return ShowTransition(parentNews, false, predatorTarget);
             yield return ShowNews();
-            yield return new WaitUntil(() => !newsNextButton.interactable);
-
             GameManager.Instance.KillOneThirdByDrift();
-            ShowBeetleLosses(
-                GameManager.Instance.driftConfigs,
-                GameManager.Instance.eatenConfigs
-            );
-            GameManager.Instance.RefillByGenetics(21);
+            ShowBeetleDrift(GameManager.Instance.driftConfigs);
+            yield return new WaitUntil(() => !newsNextButton.interactable);
 
             yield return ShowTransition(parentLosses, false);
             yield return ShowReview();
@@ -161,19 +157,18 @@ public class UIManager : MonoBehaviour
         if (tutorialIndex < tutorialPanels.Count - 1)
         {
             tutorialIndex++;
+            UpdateTutorialButtons();
         }
         else
         {
             // chega no último -> skip
             tutorialIndex = tutorialPanels.Count;
         }
-        UpdateTutorialButtons();
     }
 
     private void OnSkipTutorial()
     {
         tutorialIndex = tutorialPanels.Count;
-        UpdateTutorialButtons();
     }
 
     private IEnumerator ShowPredator()
@@ -247,19 +242,20 @@ public class UIManager : MonoBehaviour
                 obj.SetActive(obj == go);
     }
 
-    public void ShowBeetleLosses(
-        List<GameManager.BeetleConfig> driftList,
-        List<GameManager.BeetleConfig> eatenList)
+    public void ShowBeetleEaten(List<GameManager.BeetleConfig> eatenList)
+    {
+        foreach (Transform t in eatenContainer) Destroy(t.gameObject);
+
+        foreach (var cfg in eatenList)
+            CreateIcon(cfg.morphotype, eatenContainer);
+    }
+
+    public void ShowBeetleDrift(List<GameManager.BeetleConfig> driftList)
     {
         foreach (Transform t in driftContainer) Destroy(t.gameObject);
-        foreach (Transform t in eatenContainer) Destroy(t.gameObject);
 
         foreach (var cfg in driftList)
             CreateIcon(cfg.morphotype, driftContainer);
-        foreach (var cfg in eatenList)
-            CreateIcon(cfg.morphotype, eatenContainer);
-
-        ActivateOnly(parentLosses);
     }
 
     private void CreateIcon(Morphotype m, Transform parent)
