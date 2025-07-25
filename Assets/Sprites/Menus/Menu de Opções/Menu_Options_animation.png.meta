@@ -116,10 +116,10 @@ TextureImporter:
       name: Menu_Options_animation_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 24000
-        height: 450
+        x: 201
+        y: 113
+        width: 400
+        height: 262
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 66885f575219fd245b08825598fc1b51
     internalID: 0
     vertices: []
     indices: 

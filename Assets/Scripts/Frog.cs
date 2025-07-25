@@ -34,6 +34,17 @@ public class Frog : MonoBehaviour
         }
     }
 
+    void OnEnable()
+    {
+        StopAllCoroutines();
+        isBusy = false;
+        animator.Play("Idle");
+
+        Vector3 p = transform.position;
+        p.x = 0f;
+        transform.position = p;
+    }
+
     private void HandleMovement()
     {
         float input = Input.GetAxisRaw("Horizontal");

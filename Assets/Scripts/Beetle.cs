@@ -64,6 +64,8 @@ public class Beetle : MonoBehaviour
     private Texture2D grassCursorTex;
     public GameObject windEffectPrefab;
 
+    public UIManager uiManager;
+
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -78,6 +80,14 @@ public class Beetle : MonoBehaviour
         // extrai a Texture2D do Sprite
         if (grassCursorSprite != null)
             grassCursorTex = grassCursorSprite.texture;
+
+        if (uiManager == null)
+        {
+            uiManager = Object.FindFirstObjectByType<UIManager>(FindObjectsInactive.Exclude);
+        }
+
+        if (uiManager == null)
+            Debug.LogWarning("Beetle: não encontrou UIManager na cena!");
     }
 
     void Update()
@@ -215,62 +225,78 @@ public class Beetle : MonoBehaviour
         animator.SetBool("isSpining", newState == BeetleState.Spining);
     }
 
+    private IEnumerator FallWithGravity(float targetY, float gravity = 9.8f)
+    {
+        float velocity = 0f;
+        Vector3 pos = transform.position;
+        while (pos.y > targetY)
+        {
+            velocity += gravity * Time.deltaTime;
+            pos.y -= velocity * Time.deltaTime;
+            transform.position = pos;
+            yield return null;
+        }
+        pos.y = targetY;
+        transform.position = pos;
+    }
+
     public void KnockDown()
     {
-        if (state != BeetleState.Fallen)
+        if (state != BeetleState.Fallen && habitat != HabitatType.Earth && windEffectPrefab != null)
         {
-            if (this.habitat == HabitatType.Earth)
-            {
-                return;
-            }
-
-            if (windEffectPrefab == null) return;
-            // 1) Pega a posição do clique na tela
-            Vector3 screenPos = Input.mousePosition;
-
-            // 2) Converte para posição no mundo, z = 0 para 2D
-            Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
+            Vector3 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             worldPos.z = 0f;
-
-            // 3) Instancia o efeito ali
             Instantiate(windEffectPrefab, worldPos, Quaternion.identity);
             Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
 
             ChangeState(BeetleState.Fallen);
-            this.habitat = HabitatType.Earth;
-            StartCoroutine(FallToY(1.6f, 0.3f));  // 0.3s de duração, por exemplo
+            habitat = HabitatType.Earth;
+            StartCoroutine(FallWithGravity(1.6f, 9.8f));
         }
-    }
-
-    private IEnumerator FallToY(float targetY, float duration)
-    {
-        Vector3 start = transform.position;
-        Vector3 end = new Vector3(start.x, targetY, start.z);
-        float elapsed = 0f;
-
-        while (elapsed < duration)
-        {
-            float t = elapsed / duration;
-            transform.position = Vector3.Lerp(start, end, t);
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
-        transform.position = end;
     }
 
     void OnMouseDown()
     {
-        KnockDown();
+        if (uiManager != null && uiManager.parentPredator.activeSelf)
+        {
+            if (Time.timeScale == 1f)
+            {
+                if (habitat == HabitatType.Grass)
+                    KnockDown();
+            }
+        }
     }
 
     void OnMouseEnter()
     {
-        if (habitat == HabitatType.Grass && grassCursorTex != null)
-            Cursor.SetCursor(grassCursorTex, Vector2.zero, CursorMode.Auto);
+        if (uiManager != null && uiManager.parentPredator.activeSelf)
+        {
+            if (Time.timeScale == 1f)
+            {
+                if (habitat == HabitatType.Grass && grassCursorTex != null)
+                    Cursor.SetCursor(grassCursorTex, Vector2.zero, CursorMode.Auto);
+            }
+        }
     }
     void OnMouseExit()
     {
-        if (habitat == HabitatType.Grass)
-            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        if (uiManager != null && uiManager.parentPredator.activeSelf)
+        {
+            if (Time.timeScale == 1f)
+            {
+                if (habitat == HabitatType.Grass)
+                    Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+            }
+        }
+    }
+
+    public void StartSpining()
+    {
+        ChangeState(BeetleState.Spining);
+    }
+
+    public void ResumeWalking()
+    {
+        ChangeState(BeetleState.Walking);
     }
 }

@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
-public class BreakingNewsScroller : MonoBehaviour
+public class NewsManager : MonoBehaviour
 {
     [Header("UI References")]
     public RectTransform textTransform;    // Posicione no Inspector onde deve começar
@@ -72,5 +72,21 @@ public class BreakingNewsScroller : MonoBehaviour
         // Força TMP a recalcular o tamanho
         Canvas.ForceUpdateCanvases();
         textWidth = tmpText.GetPreferredValues(tmpText.text).x;
+    }
+    public static void ShowRandomGlobal()
+    {
+        var inst = Object.FindFirstObjectByType<NewsManager>(FindObjectsInactive.Include);
+        if (inst != null)
+            inst.ShowRandom();
+        else
+            Debug.LogWarning("Nenhum NewsManager encontrado na cena!");
+    }
+
+    public void ResetPositionNews()
+    {
+        Vector2 pos = textTransform.anchoredPosition;
+        pos.x -= scrollSpeed * Time.deltaTime;
+        pos.x = resetX;
+        textTransform.anchoredPosition = pos;
     }
 }
