@@ -1,11 +1,11 @@
-# Projeto-Besouro
+# Beetle Joy
 
 ## Autores
 **Juan Pablo de Almeida Oliveira** (Licenciando em Ciências Biológicas, UFC)  
 **João Amauri Rodrigues do Nascimento** (Bacharelando em Sistemas e Mídias Digitais, UFC)
 
 ## Sobre
-Projeto-Besouro é um Trabalho de Conclusão do Curso (TCC), ESCREVER SOBRE
+Beetle Joy é uma proposta de jogo digital educacional para o ensino de evolução biológica na educação básica. A ideia é exemplificar como os mecanismos evolutivos Seleção Natural e Deriva Genética se relacionam culminando no processo evolutivo. Dentro do jogo, uma população de besouros dançantes é submetida a uma série de fenômenos catastróficos da natureza e às vontades de um sapo cururu controlado pelo jogador. O besouro jornalista notifica os terríveis acontecimentos e dá instruções ao sapo cururu com uma mistura de ironia e comicidade.
 
 ## Tecnologias 
 ### Unity Engine e C#
@@ -13,3 +13,6 @@ Projeto-Besouro é um Trabalho de Conclusão do Curso (TCC), ESCREVER SOBRE
 
 ## Licença
 Alguma... talvez a GPLv3 ?
+
+ ## Executável
+ [Link do Drive](https://drive.google.com/drive/folders/1Ndg7ISkKi1evywYoi-GAxvwmnP3w3L6O?usp=sharing)
