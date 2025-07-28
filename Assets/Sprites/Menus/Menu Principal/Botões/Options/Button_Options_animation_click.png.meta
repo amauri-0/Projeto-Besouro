@@ -140,10 +140,10 @@ TextureImporter:
       name: Button_Options_animation_click_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 10
-        width: 102
-        height: 41
+        x: 0
+        y: 0
+        width: 118
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,10 +162,10 @@ TextureImporter:
       name: Button_Options_animation_click_1
       rect:
         serializedVersion: 2
-        x: 122
-        y: 47
-        width: 6
-        height: 6
+        x: 118
+        y: 0
+        width: 118
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,10 +184,10 @@ TextureImporter:
       name: Button_Options_animation_click_2
       rect:
         serializedVersion: 2
-        x: 126
-        y: 10
-        width: 102
-        height: 39
+        x: 236
+        y: 0
+        width: 118
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,10 +206,10 @@ TextureImporter:
       name: Button_Options_animation_click_3
       rect:
         serializedVersion: 2
-        x: 225
-        y: 46
-        width: 6
-        height: 6
+        x: 354
+        y: 0
+        width: 118
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,10 +228,10 @@ TextureImporter:
       name: Button_Options_animation_click_4
       rect:
         serializedVersion: 2
-        x: 239
-        y: 6
-        width: 111
-        height: 48
+        x: 472
+        y: 0
+        width: 118
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,99 +246,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Button_Options_animation_click_5
-      rect:
-        serializedVersion: 2
-        x: 355
-        y: 4
-        width: 115
-        height: 52
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e7b50956beb769620800000000000000
-      internalID: 2780546070899350398
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_Options_animation_click_6
-      rect:
-        serializedVersion: 2
-        x: 472
-        y: 3
-        width: 117
-        height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1028c30ad268dc5b0800000000000000
-      internalID: -5346469652098940415
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_Options_animation_click_7
-      rect:
-        serializedVersion: 2
-        x: 123
-        y: 7
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: eb706818d6a98e380800000000000000
-      internalID: -8941727265028962370
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_Options_animation_click_8
-      rect:
-        serializedVersion: 2
-        x: 225
-        y: 7
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 297c08b6366499ba0800000000000000
-      internalID: -6081752428967835758
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 32c480aeb18aa524487303e9eb80d89f
     internalID: 0
     vertices: []
     indices: 
@@ -353,10 +265,6 @@ TextureImporter:
       Button_Options_animation_click_2: 3705638563853602398
       Button_Options_animation_click_3: -8082611006528359676
       Button_Options_animation_click_4: -6082916869259588142
-      Button_Options_animation_click_5: 2780546070899350398
-      Button_Options_animation_click_6: -5346469652098940415
-      Button_Options_animation_click_7: -8941727265028962370
-      Button_Options_animation_click_8: -6081752428967835758
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

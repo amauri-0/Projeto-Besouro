@@ -16,10 +16,19 @@ public class Frog : MonoBehaviour
     private Animator animator;
     private bool isBusy = false; // bloqueia movimento e input durante animação
 
+    public GameObject frogDegluir;
+    public GameObject frogTongue;
+    AudioSource _degluirSource;
+    AudioSource _tongueSource;
+
     void Awake()
     {
         boxCollider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
+        if (frogDegluir != null)
+            _degluirSource = frogDegluir.GetComponent<AudioSource>();
+        if (frogTongue != null)
+            _tongueSource = frogTongue.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -55,6 +64,7 @@ public class Frog : MonoBehaviour
 
     private void EatBeetle()
     {
+        PlayTongue();
         Collider2D[] hits = Physics2D.OverlapBoxAll(boxCollider.bounds.center, boxCollider.bounds.size, 0f);
         Beetle target = null;
         float minY = float.MaxValue;
@@ -108,6 +118,7 @@ public class Frog : MonoBehaviour
     {
         isBusy = true;
         animator.Play(animationName);
+        bool targetExist = false;
 
         // Espera para destruir o besouro após tempo específico
         if (target != null)
@@ -116,6 +127,7 @@ public class Frog : MonoBehaviour
         if (target != null)
         {
             // Atualiza GameManager antes de destruir
+            targetExist = true;
             GameManager.Instance.OnBeetleEaten(target.config);
             Destroy(target.gameObject);
         }
@@ -136,8 +148,25 @@ public class Frog : MonoBehaviour
         float remaining = Mathf.Max(0, duration - destroyDelay);
         yield return new WaitForSeconds(remaining);
 
+        if (targetExist)
+            PlayDegluir();
+
         animator.Play("Idle");
         yield return new WaitForSeconds(0.25f);
         isBusy = false;
+    }
+
+    public void PlayDegluir()
+    {
+        if (_degluirSource == null) return;
+
+        _degluirSource.Play();
+    }
+
+    public void PlayTongue()
+    {
+        if (_tongueSource == null) return;
+
+        _tongueSource.Play();
     }
 }

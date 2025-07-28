@@ -1,11 +1,14 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
-using System.Collections;
+using UnityEngine.Audio;
 
 public class Countdown : MonoBehaviour
 {
     [Header("Countdown")]
     public TextMeshProUGUI countdownText;
+    public GameObject menuButton;
+    public GameObject audioSource;
 
     private void PauseGame()
     {
@@ -24,9 +27,9 @@ public class Countdown : MonoBehaviour
 
     public IEnumerator CountdownRoutine()
     {
+        audioSource.SetActive(false);
         // Garante que esteja pausado
         PauseGame();
-
         // Sequência de valores
         string[] steps = { "3", "2", "1", "Vai!" };
         foreach (var s in steps)
@@ -38,5 +41,7 @@ public class Countdown : MonoBehaviour
 
         countdownText.gameObject.SetActive(false);
         UnpauseGame();
+        audioSource.SetActive(true);
+        menuButton.SetActive(true);
     }
 }

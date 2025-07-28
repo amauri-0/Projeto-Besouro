@@ -140,10 +140,10 @@ TextureImporter:
       name: Button_Skip_animation_click_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 9
-        width: 79
-        height: 41
+        x: 0
+        y: 0
+        width: 96
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,10 +162,10 @@ TextureImporter:
       name: Button_Skip_animation_click_1
       rect:
         serializedVersion: 2
-        x: 101
-        y: 43
-        width: 7
-        height: 6
+        x: 96
+        y: 0
+        width: 96
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,10 +184,10 @@ TextureImporter:
       name: Button_Skip_animation_click_2
       rect:
         serializedVersion: 2
-        x: 105
-        y: 9
-        width: 79
-        height: 37
+        x: 192
+        y: 0
+        width: 96
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,10 +206,10 @@ TextureImporter:
       name: Button_Skip_animation_click_3
       rect:
         serializedVersion: 2
-        x: 181
-        y: 43
-        width: 7
-        height: 6
+        x: 288
+        y: 0
+        width: 96
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,10 +228,10 @@ TextureImporter:
       name: Button_Skip_animation_click_4
       rect:
         serializedVersion: 2
-        x: 196
-        y: 5
-        width: 89
-        height: 45
+        x: 384
+        y: 0
+        width: 96
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,99 +246,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Button_Skip_animation_click_5
-      rect:
-        serializedVersion: 2
-        x: 290
-        y: 3
-        width: 86
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: eeea834449f1617a0800000000000000
-      internalID: -6406898698227765522
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_Skip_animation_click_6
-      rect:
-        serializedVersion: 2
-        x: 379
-        y: 2
-        width: 101
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 62ed9df67a76d4280800000000000000
-      internalID: -9057469306738450906
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_Skip_animation_click_7
-      rect:
-        serializedVersion: 2
-        x: 101
-        y: 6
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1a8af8d18c801efe0800000000000000
-      internalID: -1161637573302441823
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_Skip_animation_click_8
-      rect:
-        serializedVersion: 2
-        x: 181
-        y: 6
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5b79628024d5c0040800000000000000
-      internalID: 4615166256333887413
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 8011b900bf3e81c4a8b5d7174fcb8fc1
     internalID: 0
     vertices: []
     indices: 
@@ -353,10 +265,6 @@ TextureImporter:
       Button_Skip_animation_click_2: 2113244321083019687
       Button_Skip_animation_click_3: 975243757739234862
       Button_Skip_animation_click_4: 3607128222048226333
-      Button_Skip_animation_click_5: -6406898698227765522
-      Button_Skip_animation_click_6: -9057469306738450906
-      Button_Skip_animation_click_7: -1161637573302441823
-      Button_Skip_animation_click_8: 4615166256333887413
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

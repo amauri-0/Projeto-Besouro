@@ -140,10 +140,10 @@ TextureImporter:
       name: Button_Next_animation_click_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 9
-        width: 41
-        height: 41
+        x: 0
+        y: 0
+        width: 59
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,10 +162,10 @@ TextureImporter:
       name: Button_Next_animation_click_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 43
-        width: 7
-        height: 6
+        x: 59
+        y: 0
+        width: 59
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,10 +184,10 @@ TextureImporter:
       name: Button_Next_animation_click_2
       rect:
         serializedVersion: 2
-        x: 68
-        y: 9
-        width: 41
-        height: 37
+        x: 118
+        y: 0
+        width: 59
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,10 +206,10 @@ TextureImporter:
       name: Button_Next_animation_click_3
       rect:
         serializedVersion: 2
-        x: 106
-        y: 43
-        width: 7
-        height: 6
+        x: 177
+        y: 0
+        width: 59
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,10 +228,10 @@ TextureImporter:
       name: Button_Next_animation_click_4
       rect:
         serializedVersion: 2
-        x: 122
-        y: 5
-        width: 51
-        height: 45
+        x: 236
+        y: 0
+        width: 59
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,99 +246,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Button_Next_animation_click_5
-      rect:
-        serializedVersion: 2
-        x: 179
-        y: 3
-        width: 48
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dc27a0d7cfb8ae2e0800000000000000
-      internalID: -2095708760041688371
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_Next_animation_click_6
-      rect:
-        serializedVersion: 2
-        x: 230
-        y: 2
-        width: 64
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5c804cef192757c70800000000000000
-      internalID: 8968200204348295365
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_Next_animation_click_7
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 6
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d96224aee5b8c9b80800000000000000
-      internalID: -8386675166297315683
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_Next_animation_click_8
-      rect:
-        serializedVersion: 2
-        x: 106
-        y: 6
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a08c02178aea82ae0800000000000000
-      internalID: -1573816031290275830
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f8a1c86017e7905478d3af382e504243
     internalID: 0
     vertices: []
     indices: 
@@ -353,10 +265,6 @@ TextureImporter:
       Button_Next_animation_click_2: -8710274353064377855
       Button_Next_animation_click_3: -3029307636681013778
       Button_Next_animation_click_4: 8391144697318162439
-      Button_Next_animation_click_5: -2095708760041688371
-      Button_Next_animation_click_6: 8968200204348295365
-      Button_Next_animation_click_7: -8386675166297315683
-      Button_Next_animation_click_8: -1573816031290275830
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

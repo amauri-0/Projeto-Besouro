@@ -128,10 +128,10 @@ TextureImporter:
       name: Button_Menu_animation_click_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 9
-        width: 85
-        height: 41
+        x: 0
+        y: 0
+        width: 118
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,10 +150,10 @@ TextureImporter:
       name: Button_Menu_animation_click_1
       rect:
         serializedVersion: 2
-        x: 130
-        y: 7
-        width: 91
-        height: 41
+        x: 118
+        y: 0
+        width: 118
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,10 +172,10 @@ TextureImporter:
       name: Button_Menu_animation_click_2
       rect:
         serializedVersion: 2
-        x: 248
-        y: 6
-        width: 91
-        height: 43
+        x: 236
+        y: 0
+        width: 118
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,10 +194,10 @@ TextureImporter:
       name: Button_Menu_animation_click_3
       rect:
         serializedVersion: 2
-        x: 364
-        y: 4
-        width: 95
-        height: 47
+        x: 354
+        y: 0
+        width: 118
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,10 +216,10 @@ TextureImporter:
       name: Button_Menu_animation_click_4
       rect:
         serializedVersion: 2
-        x: 481
-        y: 3
-        width: 97
-        height: 49
+        x: 472
+        y: 0
+        width: 118
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b52234c7965903948972224ca453e125
     internalID: 0
     vertices: []
     indices: 

@@ -41,6 +41,7 @@ public class UIManager : MonoBehaviour
     public AudioClip predatorClip;
     public AudioClip newsClip;
     public AudioClip desfechoClip;
+    public GameObject cronometerSource;
 
     [Header("Transition Panel")]
     [Tooltip("GameObject que contém o RawImage de transição.")]
@@ -52,6 +53,7 @@ public class UIManager : MonoBehaviour
     [Header("UI References")]
     public Button newsNextButton;
     public Button reviewNextButton;
+    public GameObject menuButton;
 
     [Header("Losses UI")]
     public Transform driftContainer;
@@ -196,11 +198,14 @@ public class UIManager : MonoBehaviour
     {
         ActivateOnly(parentPredator);
         audioSource.PlayOneShot(predatorClip);
-        yield return new WaitForSeconds(predatorDuration);
+        yield return new WaitForSeconds(predatorDuration-1);
+        cronometerSource.SetActive(true);
+        yield return new WaitForSeconds(1);
     }
 
     private IEnumerator ShowNews()
     {
+        cronometerSource.SetActive(false);
         ActivateOnly(parentNews);
         audioSource.PlayOneShot(newsClip);
         newsNextButton.interactable = true;
@@ -219,13 +224,15 @@ public class UIManager : MonoBehaviour
 
     private IEnumerator ShowTransition(GameObject next, bool beetle, bool spining, Transform centerTarget = null)
     {
+        bool activeMenuButton = true;
         transitionPanelObject.SetActive(true);
         Vector2 centerUV = centerTarget != null
             ? mainCam.WorldToViewportPoint(centerTarget.position)
             : new Vector2(0.5f, 0.5f);
         transitionMaterial.SetVector("_Center", centerUV);
 
-        float p = 1f;
+        menuButton.SetActive(false);
+        float p = 0.6f;
         while (p > 0f)
         {
             p -= transitionSpeed * Time.unscaledDeltaTime;
@@ -244,6 +251,7 @@ public class UIManager : MonoBehaviour
                 SetAllBeetlesToSpining();
             else
             {
+                activeMenuButton = false;
                 StartCountdownAndUnpause();
                 SetAllBeetlesToWalking();
             }
@@ -254,7 +262,7 @@ public class UIManager : MonoBehaviour
             beetleSpawner.ClearBeetles();
         }
 
-        while (p < 1f)
+        while (p < 0.6f)
         {
             p += transitionSpeed * Time.unscaledDeltaTime;
             transitionMaterial.SetFloat("_Progress", Mathf.Clamp01(p));
@@ -262,6 +270,8 @@ public class UIManager : MonoBehaviour
         }
 
         transitionPanelObject.SetActive(false);
+        if(activeMenuButton)
+            menuButton.SetActive(true);
     }
 
     private void ActivateOnly(GameObject go)

@@ -134,10 +134,10 @@ TextureImporter:
       name: Button_Start_animation_click_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 10
-        width: 120
-        height: 41
+        x: 0
+        y: 0
+        width: 157
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,10 +156,10 @@ TextureImporter:
       name: Button_Start_animation_click_1
       rect:
         serializedVersion: 2
-        x: 169
-        y: 9
-        width: 124
-        height: 43
+        x: 157
+        y: 0
+        width: 157
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,10 +178,10 @@ TextureImporter:
       name: Button_Start_animation_click_2
       rect:
         serializedVersion: 2
-        x: 291
-        y: 45
-        width: 7
-        height: 6
+        x: 314
+        y: 0
+        width: 157
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,10 +200,10 @@ TextureImporter:
       name: Button_Start_animation_click_3
       rect:
         serializedVersion: 2
-        x: 322
-        y: 6
-        width: 136
-        height: 49
+        x: 471
+        y: 0
+        width: 157
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,10 +222,10 @@ TextureImporter:
       name: Button_Start_animation_click_4
       rect:
         serializedVersion: 2
-        x: 477
-        y: 4
-        width: 140
-        height: 54
+        x: 628
+        y: 0
+        width: 157
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,55 +240,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Button_Start_animation_click_5
-      rect:
-        serializedVersion: 2
-        x: 632
-        y: 1
-        width: 145
-        height: 59
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4e471fee9e447cba0800000000000000
-      internalID: -6068806201331583772
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_Start_animation_click_6
-      rect:
-        serializedVersion: 2
-        x: 291
-        y: 8
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 751a4c56a442e2060800000000000000
-      internalID: 6930516778523337047
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 001cfe9acc4530247844afb0f877e327
     internalID: 0
     vertices: []
     indices: 
@@ -303,8 +259,6 @@ TextureImporter:
       Button_Start_animation_click_2: 8098878919677468637
       Button_Start_animation_click_3: -3102409186906595950
       Button_Start_animation_click_4: 1837764202162412606
-      Button_Start_animation_click_5: -6068806201331583772
-      Button_Start_animation_click_6: 6930516778523337047
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

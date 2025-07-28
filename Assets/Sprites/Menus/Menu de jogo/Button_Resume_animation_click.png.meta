@@ -128,10 +128,10 @@ TextureImporter:
       name: Button_Resume_animation_click_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 12
-        width: 118
-        height: 41
+        x: 0
+        y: 0
+        width: 157
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,10 +150,10 @@ TextureImporter:
       name: Button_Resume_animation_click_1
       rect:
         serializedVersion: 2
-        x: 170
-        y: 10
-        width: 124
-        height: 41
+        x: 157
+        y: 0
+        width: 157
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,10 +172,10 @@ TextureImporter:
       name: Button_Resume_animation_click_2
       rect:
         serializedVersion: 2
-        x: 327
-        y: 9
-        width: 124
-        height: 43
+        x: 314
+        y: 0
+        width: 157
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,10 +194,10 @@ TextureImporter:
       name: Button_Resume_animation_click_3
       rect:
         serializedVersion: 2
-        x: 482
-        y: 7
-        width: 128
-        height: 47
+        x: 471
+        y: 0
+        width: 157
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,10 +216,10 @@ TextureImporter:
       name: Button_Resume_animation_click_4
       rect:
         serializedVersion: 2
-        x: 638
-        y: 6
-        width: 130
-        height: 49
+        x: 628
+        y: 0
+        width: 157
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2a9ce8dbc1854934babcf0f181d1a22e
     internalID: 0
     vertices: []
     indices: 

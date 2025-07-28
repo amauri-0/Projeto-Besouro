@@ -3,7 +3,7 @@
     Properties
     {
         _MainTex("Texture", 2D) = "white" {}
-        _Progress("Progress", Range(0,1)) = 1
+        _Progress("Progress", Range(0,0.6)) = 0.6
         _Center("Center", Vector) = (0.5,0.5,0,0)
         _Color("Tint Color", Color) = (0,0,0,1)
     }
