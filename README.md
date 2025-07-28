@@ -12,7 +12,7 @@ Beetle Joy é uma proposta de jogo digital educacional para o ensino de evoluç�
 <img align="center" alt="Rafa-Unity" height="60" width="80" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/unity/unity-original.svg">  <img align="center" alt="Rafa-Csharp" height="60" width="80" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg">
 
 ## Licença
-Alguma... talvez a GPLv3 ?
+[GNU Affero General Public License v3.0](LICENSE)
 
  ## Executável
  [Link do Drive](https://drive.google.com/drive/folders/1Ndg7ISkKi1evywYoi-GAxvwmnP3w3L6O?usp=sharing)
