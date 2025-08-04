@@ -11,7 +11,7 @@ public class BeetleMenu : MonoBehaviour
     {
     }
 
-    void Update()
+    void FixedUpdate()
     {
         transform.position = Vector3.MoveTowards(
             transform.position,

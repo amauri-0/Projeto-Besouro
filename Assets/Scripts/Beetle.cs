@@ -3,12 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public enum Morphotype
-{
-    Black,
-    Red,
-    Yellow
-}
+public enum Morphotype { Black, Red, Yellow }
 
 public enum HabitatType { Earth, Grass }
 
@@ -63,6 +58,7 @@ public class Beetle : MonoBehaviour
     public Sprite grassCursorSprite;
     private Texture2D grassCursorTex;
     public GameObject windEffectPrefab;
+    private Texture2D defaultCursor;
 
     public UIManager uiManager;
 
@@ -247,7 +243,7 @@ public class Beetle : MonoBehaviour
             Vector3 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             worldPos.z = 0f;
             Instantiate(windEffectPrefab, worldPos, Quaternion.identity);
-            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+            Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
 
             ChangeState(BeetleState.Fallen);
             habitat = HabitatType.Earth;
@@ -285,7 +281,7 @@ public class Beetle : MonoBehaviour
             if (Time.timeScale == 1f)
             {
                 if (habitat == HabitatType.Grass)
-                    Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+                Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
             }
         }
     }

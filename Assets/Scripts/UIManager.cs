@@ -58,7 +58,7 @@ public class UIManager : MonoBehaviour
     [Header("Losses UI")]
     public Transform driftContainer;
     public Transform eatenContainer;
-    public Sprite[] beetleIcons;       // 0=Black,1=Red,2=Yellow
+    public Sprite[] beetleIcons;       // 0=Black-Earth, 1=Black-Grass, 2=Red-Earth, 3=Red-Grass, 4=Yellow-Earth, 5=Yellow-Grass
     public GameObject iconPrefab;
 
     [Header("Spawner Reference")]
@@ -287,7 +287,7 @@ public class UIManager : MonoBehaviour
         foreach (Transform t in eatenContainer) Destroy(t.gameObject);
 
         foreach (var cfg in eatenList)
-            CreateIcon(cfg.morphotype, eatenContainer);
+            CreateIcon(cfg.morphotype, cfg.habitat, eatenContainer);
     }
 
     public void ShowBeetleDrift(List<GameManager.BeetleConfig> driftList)
@@ -295,14 +295,14 @@ public class UIManager : MonoBehaviour
         foreach (Transform t in driftContainer) Destroy(t.gameObject);
 
         foreach (var cfg in driftList)
-            CreateIcon(cfg.morphotype, driftContainer);
+            CreateIcon(cfg.morphotype, cfg.habitat, driftContainer);
     }
 
-    private void CreateIcon(Morphotype m, Transform parent)
+    private void CreateIcon(Morphotype m, HabitatType h, Transform parent)
     {
         var go = Instantiate(iconPrefab, parent);
         var img = go.GetComponent<Image>();
-        img.sprite = beetleIcons[(int)m];
+        img.sprite = beetleIcons[((int)m)*2 + (int)h];
         img.preserveAspect = true;
     }
 
@@ -350,10 +350,12 @@ public class UIManager : MonoBehaviour
     public static void PauseGame()
     {
         Time.timeScale = 0f;
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
 
     public static void UnpauseGame()
     {
         Time.timeScale = 1f;
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
 }

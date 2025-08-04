@@ -42,7 +42,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _EnableExternalAlpha: 0
-    - _Progress: 0.4287084
+    - _Progress: 0.6009475
     - _ZWrite: 0
     m_Colors:
     - _Center: {r: 0.5, g: 0.5, b: 0, a: 0}
