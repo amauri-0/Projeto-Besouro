@@ -2,6 +2,8 @@
 
 <div align="center">
   <img src="imagemExemplo.png" style="width: 800px;" />
+  <img src="imagemExemplo2.png" style="width: 800px;" />
+  <img src="imagemExemplo3.png" style="width: 800px;" />
 </div>
 
 ## Autores
