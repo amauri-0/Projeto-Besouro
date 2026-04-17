@@ -1,5 +1,9 @@
 # Beetle Joy
 
+<div align="center">
+  <img src="imagemExemplo.png" style="width: 800px;" />
+</div>
+
 ## Autores
 **Juan Pablo de Almeida Oliveira** (Licenciando em Ciências Biológicas, UFC)  
 **João Amauri Rodrigues do Nascimento** (Bacharelando em Sistemas e Mídias Digitais, UFC)
